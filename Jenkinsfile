@@ -1,9 +1,9 @@
 pipeline {
-    agent any
+    agent none
     stages {
         stage('build') {
             steps {
-                sh 'python --version'
+                sh 'echo Hola Mundo Jenkins'
             }
         }
     }
