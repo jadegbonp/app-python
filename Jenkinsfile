@@ -14,7 +14,7 @@ pipeline {
             }   
         }
         stage("Docker Image"){
-            app = docker.build("app-python", ".")
+            app = docker.build("app-python", "-f Dockerfile .")
         }
         stage("Test Image"){
             app.inside {
