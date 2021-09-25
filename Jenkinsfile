@@ -1,12 +1,17 @@
 pipeline {
     agent {
-        docker { image 'node:14-alpine' }
+        agent { docker { image 'python:3.7.2' } }
     }
     stages {
-        stage('Test') {
+        stage('build') {
             steps {
-                sh 'node --version'
+                sh 'pip install -r requirements.txt'
             }
+        }
+        stage('test') {
+            steps {
+                sh 'python main.py'
+            }   
         }
     }
 }
