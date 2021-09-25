@@ -14,9 +14,7 @@ pipeline {
             }   
         }
         stage("Docker Image"){
-            steps {
-                app = docker.build("app-python", "-f Dockerfile .")
-            }
+            app = docker.build("app-python", "-f Dockerfile .")
         }
     }
 }
