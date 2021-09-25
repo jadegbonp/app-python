@@ -14,11 +14,15 @@ pipeline {
             }   
         }
         stage("Docker Image"){
-            app = docker.build("app-python", "-f Dockerfile .")
+            steps {
+                app = docker.build("app-python", "-f Dockerfile .")
+            }
         }
         stage("Test Image"){
-            app.inside {
-                sh 'echo "Test passed Image"'
+            steps {
+                app.inside {
+                    sh 'echo "Test passed Image"'
+                }
             }
         }
     }
