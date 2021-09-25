@@ -18,12 +18,5 @@ pipeline {
                 app = docker.build("app-python", "-f Dockerfile .")
             }
         }
-        stage("Test Image"){
-            steps {
-                app.inside {
-                    sh 'echo "Test passed Image"'
-                }
-            }
-        }
     }
 }
