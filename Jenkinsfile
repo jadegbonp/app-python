@@ -13,8 +13,8 @@ pipeline {
                 sh 'pytest tests.py'
             }   
         }
-        stage("Build Docker Image"){
-            app = docker.build("app-python")
+        stage("Docker Image"){
+            app = docker.build("app-python", ".")
         }
         stage("Test Image"){
             app.inside {
