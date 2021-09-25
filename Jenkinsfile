@@ -15,7 +15,9 @@ pipeline {
         }
         stage('Build image') { 
             steps{ 
-                docker.build "app-python:latest", " ."
+                script {
+                    def image = docker.build ("app-python:latest", ".")
+                }
             } 
         }
     }
