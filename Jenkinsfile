@@ -13,5 +13,10 @@ pipeline {
                 sh 'pytest tests.py'
             }   
         }
+        stage("Build Docker Image"){
+            steps{
+                sh docker.build("app-python", "-f Dockerfile .")
+            }
+        }
     }
 }
